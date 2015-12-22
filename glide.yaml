@@ -1,14 +1,18 @@
-package: main
+package: github.com/kihamo/shadow-slack
 import:
-- package: github.com/kihamo/shadow
-  subpackages:
-  - /service/system
-  - /service/frontend
-  - /resource
 - package: github.com/Sirupsen/logrus
+  version: v0.8.7
 - package: github.com/dropbox/godropbox
+  version: 3384358932ed41f065e018278f34ca2367a75100
   subpackages:
   - /errors
 - package: github.com/elazarl/go-bindata-assetfs
+  version: d5cac425555ca5cf00694df246e04f05e6a55150
+- package: github.com/kihamo/shadow
+  version: dd6541120366f57fc4a3196dfc8b927758d125b4
+  subpackages:
+  - resource
+  - service/frontend
+  - service/system
 - package: github.com/nlopes/slack
   version: 0c92f27523cc9e3ed470d628f1dd6839b14f88fe
