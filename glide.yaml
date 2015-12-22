@@ -1,0 +1,14 @@
+package: main
+import:
+- package: github.com/kihamo/shadow
+  subpackages:
+  - /service/system
+  - /service/frontend
+  - /resource
+- package: github.com/Sirupsen/logrus
+- package: github.com/dropbox/godropbox
+  subpackages:
+  - /errors
+- package: github.com/elazarl/go-bindata-assetfs
+- package: github.com/nlopes/slack
+  version: 0c92f27523cc9e3ed470d628f1dd6839b14f88fe
