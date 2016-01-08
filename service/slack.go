@@ -8,6 +8,7 @@ func (s *SlackService) GetSlackCommands() []SlackCommand {
 		&LogCommand{},
 		&PingCommand{},
 		&ServicesCommand{},
+		&TimeCommand{},
 		&UnknownCommand{},
 		&VersionCommand{},
 	}
