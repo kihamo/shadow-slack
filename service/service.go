@@ -140,6 +140,12 @@ func (s *SlackService) process() {
 			case *slack.AckMessage:
 				// Ignore ack message
 
+			case *slack.PinAddedEvent:
+				// Ignore pin add
+
+			case *slack.PinRemovedEvent:
+				// Ignore pin remove
+
 			case *slack.DisconnectedEvent:
 				s.mutex.Lock()
 				s.logger.Info("Disconnected")
@@ -173,11 +179,6 @@ func (s *SlackService) process() {
 			case *slack.RTMError:
 				s.mutex.Lock()
 				s.logger.Errorf("RTM error: %v", ev.Error())
-				s.mutex.Unlock()
-
-			case *slack.SlackErrorEvent:
-				s.mutex.Lock()
-				s.logger.Errorf("Slack error: %v", ev.Error())
 				s.mutex.Unlock()
 
 			default:
