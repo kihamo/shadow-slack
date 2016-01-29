@@ -1,12 +1,12 @@
 package service
 
 import (
+	"errors"
 	"flag"
 	"strings"
 	"sync"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/dropbox/godropbox/errors"
 	"github.com/kihamo/shadow"
 	"github.com/kihamo/shadow/resource"
 	"github.com/nlopes/slack"
@@ -98,7 +98,7 @@ func (s *SlackService) RegisterCommand(command SlackCommand, service shadow.Serv
 	name := command.GetName()
 
 	if _, ok := s.Commands[name]; ok {
-		return errors.Newf("There are two command mapped to %s!", name)
+		return errors.New("There are two command mapped to " + name)
 	} else {
 		command.Init(service, s.application)
 		s.Commands[name] = command
